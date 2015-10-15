@@ -1,0 +1,266 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cv-gr",
+				"cv-grid-gutter"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"background",
+				"background-color"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"header",
+				"header-height"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"font-",
+				"font-weight"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"last_filter": "Package Control: instal",
+		"selected_items":
+		[
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/vicentedavilamelosarmento/Dropbox/loa-database/index-firebase.html",
+		"/Users/vicentedavilamelosarmento/Dropbox/loa-database/index-firebase-bkp.html",
+		"/Users/vicentedavilamelosarmento/Dropbox/loa-database/index-firebase--bkp.html",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/dist/index.html",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/dist/css/cv_basics.less",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/js/convideiApp.js",
+		"/Users/vicentedavilamelosarmento/Library/Application Support/Sublime Text 3/Packages/CSS3/CSS3.sublime-settings",
+		"/Users/vicentedavilamelosarmento/Library/Application Support/Sublime Text 3/Packages/LESS/LESS.sublime-settings",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/js/anijs.js",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/Gruntfile.js",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/less/dropdowns.less",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/less/cv_basics.less",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/js/mainCtrl.js",
+		"/Users/vicentedavilamelosarmento/convidei/Prototipo/index.html",
+		"/Users/vicentedavilamelosarmento/Library/Application Support/Sublime Text 3/Packages/User/CSScomb.sublime-settings",
+		"/Users/vicentedavilamelosarmento/Library/Application Support/Sublime Text 3/Packages/CSScomb/Default.sublime-keymap",
+		"/Users/vicentedavilamelosarmento/Library/Application Support/Sublime Text 3/Packages/CSScomb/CSScomb.sublime-settings",
+		"/Users/vicentedavilamelosarmento/convidei/API/index_D.html",
+		"/Volumes/Git 2.4.0 Mavericks Intel Universal/setup git PATH for non-terminal programs.sh",
+		"/Users/vicentedavilamelosarmento/convidei/API/e-agradecimento.html",
+		"/Users/vicentedavilamelosarmento/Downloads/hero.html",
+		"/Users/vicentedavilamelosarmento/convidei/API/assets/css/magister.css",
+		"/Users/vicentedavilamelosarmento/convidei/API/index_C.html",
+		"/Users/vicentedavilamelosarmento/convidei/API/index_B.html",
+		"/Users/vicentedavilamelosarmento/convidei/API/index.html",
+		"/Users/vicentedavilamelosarmento/convidei/prototipo/index_C.html",
+		"/Users/vicentedavilamelosarmento/convidei/prototipo/index_B.html",
+		"/Users/vicentedavilamelosarmento/convidei/prototipo/assets/css/magister.css"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"*.js"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"data",
+			"fiery-heat-7361",
+			"$toogleClass",
+			"li class",
+			"thumb",
+			"columns",
+			"	src=\"http://lorempixel.com/400/200\"",
+			"ng-src='{{ bricj.src }}'",
+			"asonry-brick",
+			"jshi",
+			"<li>",
+			"angular.module",
+			"convidei",
+			"app",
+			"convideiApp",
+			"htpp",
+			"name: ",
+			"header",
+			"Convidei",
+			"title"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "index-firebase.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 228.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

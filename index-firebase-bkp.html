@@ -1,0 +1,34 @@
+<html>
+	<body>
+		<div ng-app='test' ng-controller='testCtrl'>
+			<input ng-model="name" type="text">
+			<input ng-model="class" type="text">
+			<input type="button" value="send" ng-click="sendToFirebase(newData)">
+			<h1>Basics
+			<ul ng-repeat="val in data">
+				<li>
+					{{val.name}} {{val.class}} - <span ng-click='remove(val)'>remover</span>
+				</li>
+			</ul>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+		<script>
+			var app = angular.module('test', ["firebase"]);
+			app.controller('testCtrl', function ($scope, $firebaseArray) {
+				var ref = new Firebase("https://fiery-heat-7361.firebaseio.com/loa/races");
+				$scope.data = $firebaseArray(ref);
+
+				$scope.sendToFirebase = function (data) {
+					$scope.data.$add({name: $scope.name, class: $scope.class});
+					$scope.newData = '';
+				};
+				$scope.remove = function (val) {
+					$scope.data.$remove(val);
+				};
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,141 @@
+<html>
+	<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+	<!--
+{
+  "type": "card",
+  "race": "Forest",
+  "id": "F-1-001",
+  "name": "Centaur Patrol",
+  "cost": [ 3, 5 ],
+  "stars": 1,
+  "delay": 2,
+  "atk": [ 95, 112, 129, 146, 163, 180, 197, 214, 231, 248, 265, 282, 299, 316, 333, 350],
+  "hp": [ 310, 321, 332, 343, 354, 365, 376, 387, 398, 409, 420, 431, 442, 453, 464, 475],
+  "skill": {
+  	"none": "",
+  	"Vulnerabillity": 3,
+  	"Counter-attack": 4
+  },
+  "obtain": {
+    "maze": true,
+    "thief": true,
+    "starterPack": true,
+    "crystalPack": false,
+    "magicTicket": false,
+    "racePack": false,
+    "di": false,
+    "clanStore": false,
+    "specialPack": false,
+    "tower": false,
+    "map": false,
+    "other": false
+  }
+}
+	-->
+		<div ng-app='test'>
+			<h1>Cartas</h1>
+			<section ng-controller='cardsCtrl'>
+				<h2>Cadastrar carta</h2>
+				<div class="form-group">
+					<label 	for="cardType">Type</label>
+					<input 	ng-model="card.type"
+							type="text"
+							class="form-control"
+							id="cardType"
+							placeholder="Type">
+				</div>
+				<div class="form-group">
+					<label 	for="cardRace">Race</label>
+	 				<input 	ng-model="card.race"
+	 						type="text"
+							class="form-control"
+							id="cardRace"
+							placeholder="Race">
+	 			</div>
+
+				<div class="form-group">
+					<label for="cardId">Id</label>
+	 				<input 	ng-model="card.id"
+	 						type="text"
+							class="form-control"
+							id="cardId"
+							placeholder="Id">
+	 			</div>
+	 				
+				<div class="form-group">
+					<label for="cardName">Name</label>	 				
+	 				<input 	ng-model="card.name"
+	 						type="text"
+							class="form-control"
+							id="cardName"
+							placeholder="Name">
+	 			</div>
+	 				
+				<div class="form-group">
+					<label for="cardCost">Cost</label>	 				
+	 				<input 	ng-model="card.cost"
+	 						type="text"
+							class="form-control"
+							id="cardCost"
+							placeholder="Cost">
+	 			</div>
+
+				<input type="button" value="save" ng-click="save()">
+				
+				<ul class="" ng-repeat="card in cards">
+					<li>
+						{{card.name}} - <span ng-click='remove(card)'>remover</span> <span ng-click='edit(card)'>editar</span>
+					</li>
+				</ul>
+			</section>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+		<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script>
+			angular.module('test', ["firebase"]);
+			angular.module('test').controller('cardsCtrl', cardsCtrl);
+
+			function cardsCtrl ($scope, $firebaseArray) {
+				var ref = new Firebase("https://4theplayers.firebaseio.com/loa/cards");
+				$scope.cards = $firebaseArray(ref);
+				$scope.card = {};
+
+				function cardDontExist() {
+					return !$scope.card.$id;
+				}
+
+				$scope.save = function () {
+					if (cardDontExist())
+						$scope.cards.$add($scope.card);
+					else {
+						var cardOrigin = _.findWhere($scope.cards, { $id: $scope.card.$id });
+						_.extend(cardOrigin, $scope.card);
+					}
+					$scope.card = {};
+				};
+
+				$scope.remove = function (card) {
+					$scope.cards.$remove(card);
+				};
+
+				$scope.edit = function (card) {
+					$scope.card = angular.copy(card);
+				}
+			}
+		</script>
+	</body>
+</html>

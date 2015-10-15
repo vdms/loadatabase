@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="LoADBapp">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>LoA Easy DB</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body ng-controller="LoADB as db">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1>Easy LoA DB</h1>
+                    <h2>Data table</h2>
+                    <div ng-repeat="card in db.cards">
+                        <ul class="list-unstyled">
+                            <li>
+                                <p>{{card.cardPageId}}</p>
+                                <span>Id: {{card.id}}</span>
+                                <div class="media">
+                                    <span class="pull-left" href="#">
+                                        <!-- <img class="media-object" src="{{card.image}}" alt="{{card.namde}}"> -->
+                                    </span>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">{{card.name}}</h4>
+                                        <h5>Race: {{card.race}}</h5>
+                                        <ul class="list-unstyled">
+                                            <li>Star: {{card.star}}</li>
+                                            <li>Wait: {{card.wait}}</li>
+                                            <li>Cost: {{card.cost}}</li>
+                                            <li>Atk: {{card.atk}}</li>
+                                            <li>Hp: {{card.hp}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <!-- underscore / underscore.string -->
+        <script src="http://underscorejs.org/underscore.js"></script>
+        <script src="js/underscore.js"></script>        
+        <!-- angularjs -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <!-- jquery -->
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>        
+        <script src="js/app.js"></script>
+    </body>
+</html>
