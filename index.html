@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>LoA Easy DB</title>
 				<!-- Compiled and minified CSS -->
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     </head>
     <body>
         <script>
@@ -38,112 +38,10 @@
                     other: obtain.other
                 }
             };
-            
-            for(var i = 0; i < 10; i++) {
-                var multiplier = i * 4;
-                //races
-                var race = "Kingdom";
-                switch (i % 4) {
-                    case 0:
-                        race = "Forest";
-                        break;
-                    case 1:
-                        race = "Wilderness";
-                        break;
-                    case 2:
-                        race = "Hell";
-                        break;
-                }
-                //cost
-                var costInit = 6 + i;
-                
-                //stars
-                var stars = 3;
-                switch (costInit){
-                    case costInit > 13:
-                        stars = 5;
-                        break;
-                    case costInit > 10:
-                        stars = 4;
-                        break;
-                }
-                //delay
-                var delay = delay == 6 ? 4 : 6;
-                allCards.push(new card("http://placehold.it/300",
-                                {
-                                    name: "Card" + i,
-                                    race: race,
-                                    cost: { init: costInit,
-                                            evol: costInit + 2},
-                                    stars: stars,
-                                    delay: delay,
-                                    atks :   [
-                                        {value: 350 + multiplier , level: 0},
-                                        {value: 450 + multiplier, level: 5},
-                                        {value: 550 + multiplier, level: 10},
-                                        {value: 650 + multiplier, level: 15}
-                                    ],
-                                    hps:     [
-                                        {value: 800 + multiplier, level: 0},
-                                        {value: 1000 + multiplier, level: 5},
-                                        {value: 1200 + multiplier, level: 10},
-                                        {value: 1400 + multiplier, level: 15}
-                                    ],
-                                    exps:    [
-                                        {value: 0, level: 0},
-                                        {value: 3460, level: 5},
-                                        {value: 19200, level: 10},
-                                        {value: 74400, level: 15}
-                                    ],
-                                    skills:  [
-                                        {name: "Reflection", level: i},
-                                        {name: "Dodge", level: i},
-                                        {name: "Bloodthirsty", level: i}
-                                             ]
-                                },
-                                {
-                                    maze: false,
-                                    thief: true,
-                                    starterPack: false,
-                                    crystalPack: true,
-                                    magicTicket: false,
-                                    racePack: true,
-                                    di: false,
-                                    clanStore: false,
-                                    specialPack: false,
-                                    tower: false,
-                                    map: "",
-                                    other: ""
-                                }
-                               ))
-            };
-            var getCard = function(propertyName, value) {
-                for(var i = 0; i < allCards.length; i++) {
-                    var card = allCards[i];
-                    switch(propertyName) {
-                        case "name":
-                        case "race":
-                            if(card.property[propertyName] === value) {
-                                return card;
-                            };
-                            break;
-                        default:
-                            return "Nenhum resultado.";
-                    }
-                }
-                //tratamento de erro
-                return null;
-            };
         </script>
-				<!--Import jQuery before materialize.js-->
-				<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  			<!-- Compiled and minified JavaScript -->
-  			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-        <script>
-            //$(document).foundation();
-            console.log(allCards);
-            //console.log(getCard("name", "Card3"));
-            console.log(getCard("race", "Wilderness"));
-        </script>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     </body>
 </html>
