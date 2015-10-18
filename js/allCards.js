@@ -1,4 +1,4 @@
-[
+var allCards = [
   {
     "name":"Venom Monster"
     ,"id":"468"
@@ -65938,4 +65938,4 @@
     ,"lvl13":null
     ,"lvl14":null
     ,"lvl15":null
-  }]
+  }];

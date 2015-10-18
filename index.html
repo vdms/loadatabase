@@ -8,6 +8,11 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     </head>
     <body>
+        <script type="text/javascript" src="js/allCards.js"></script>
+        <!--Import jQuery before materialize.js-->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
         <script>
             var allCards = [];
             var card = function (img, property, obtain){
@@ -38,10 +43,13 @@
                     other: obtain.other
                 }
             };
+
+            var listCards = function () {
+                for (card in allCards) {
+                    console.log(allCards[card]);
+                }
+            };
         </script>
-        <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <!-- Compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+
     </body>
 </html>
