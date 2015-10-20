@@ -1,20 +1,52 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="loadatabase">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>LoA Easy DB</title>
 				<!-- Compiled and minified CSS -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="js/app.js"></script>
     </head>
-    <body>
+
+    <body ng-controller="AllCardsListController">
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="raceFilter" type="text">
+<!--                 <select >
+                    <option value="" disabled selected>Race type</option>
+                    <option ng-repeat="race in cardList.races" value="{{race}}">{{race}}</option>
+                </select> 
+                <label>Race</label>-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="collection">
+                  <li class="collection-item avatar" ng-repeat="card in allCards | filter:raceFilter | orderBy: 'name'">
+                    <img ng-src="http://mokaworld.ru/mini_new/{{card.id}}.jpg" alt="card.name" class="circle">
+                    <span class="title">{{card.name}}</span>
+                    <p><strong>Race:</strong> {{card.race}}</p>
+                    <p><strong>Cost:</strong> {{card.cost}}</p>
+                    <p><strong>Cost evolved:</strong> {{card.costEvo}}</p>
+                    <p><strong>Time:</strong> {{card.time}}</p>
+                    <ul>
+                        <li><strong>Level 0:</strong> {{card.skill0}}</li>
+                        <li><strong>Level 5:</strong> {{card.skill5}}</li>
+                        <li><strong>Level 10:</strong> {{card.skill10}}</li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+
         <script type="text/javascript" src="js/allCards.js"></script>
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
         <script>
-            var allCards = [];
             var card = function (img, property, obtain){
                 this.img = img,
                 this.property = {
@@ -41,12 +73,6 @@
                     tower: obtain.tower,
                     map: obtain.map,
                     other: obtain.other
-                }
-            };
-
-            var listCards = function () {
-                for (card in allCards) {
-                    console.log(allCards[card]);
                 }
             };
         </script>

@@ -1,13 +1,17 @@
-<html>
-	<head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!doctype html>
+<html class="no-js" lang="en" ng-app="loadatabase">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-	</head>
-	<body>
-	<!--
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LoA Easy DB</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <!--
 {
   "type": "card",
   "race": "Forest",
@@ -19,9 +23,9 @@
   "atk": [ 95, 112, 129, 146, 163, 180, 197, 214, 231, 248, 265, 282, 299, 316, 333, 350],
   "hp": [ 310, 321, 332, 343, 354, 365, 376, 387, 398, 409, 420, 431, 442, 453, 464, 475],
   "skill": {
-  	"none": "",
-  	"Vulnerabillity": 3,
-  	"Counter-attack": 4
+    "none": "",
+    "Vulnerabillity": 3,
+    "Counter-attack": 4
   },
   "obtain": {
     "maze": true,
@@ -38,104 +42,91 @@
     "other": false
   }
 }
-	-->
-		<div ng-app='test'>
-			<h1>Cartas</h1>
-			<section ng-controller='cardsCtrl'>
-				<h2>Cadastrar carta</h2>
-				<div class="form-group">
-					<label 	for="cardType">Type</label>
-					<input 	ng-model="card.type"
-							type="text"
-							class="form-control"
-							id="cardType"
-							placeholder="Type">
-				</div>
-				<div class="form-group">
-					<label 	for="cardRace">Race</label>
-	 				<input 	ng-model="card.race"
-	 						type="text"
-							class="form-control"
-							id="cardRace"
-							placeholder="Race">
-	 			</div>
+    -->
+  <h1>Cartas</h1>
+  <section ng-controller='cardsCtrl'>
+    <h2>Cadastrar carta</h2>
+    <div class="form-group">
+      <label for="cardType">Type</label>
+      <input ng-model="card.type" type="text" class="form-control" id="cardType" placeholder="Type">
+    </div>
+    <div class="form-group">
+      <label for="cardRace">Race</label>
+      <input ng-model="card.race" type="text" class="form-control" id="cardRace" placeholder="Race">
+    </div>
+    <div class="form-group">
+      <label for="cardId">Id</label>
+      <input ng-model="card.id" type="text" class="form-control" id="cardId" placeholder="Id">
+    </div>
+    <div class="form-group">
+      <label for="cardName">Name</label>
+      <input ng-model="card.name" type="text" class="form-control" id="cardName" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="cardCost">Cost</label>
+      <input ng-model="card.cost" type="text" class="form-control" id="cardCost" placeholder="Cost">
+    </div>
+    <input type="button" value="save" ng-click="save()">
+    <h1>Filter</h1>
+    <input ng-model="raceFilter" type="text">
+    {{filtered.length}}
+    <ul class="collection">
+      <li class="collection-item avatar" ng-repeat="card in filtered = (cards | filter:{race: raceFilter}) | orderBy: 'name'">
+        <img ng-src="http://mokaworld.ru/mini_new/{{card.id}}.jpg" alt="card.name" class="circle thumb-mid">
+        <span class="title">{{card.name}}</span>
+        <p><strong>Race:</strong> {{card.race}}</p>
+        <p><strong>Cost:</strong> {{card.cost}}</p>
+        <p><strong>Cost evolved:</strong> {{card.costEvo}}</p>
+        <p><strong>Time:</strong> {{card.time}}</p>
+        <ul>
+            <li><strong>Level 0:</strong> {{card.skill0}}</li>
+            <li><strong>Level 5:</strong> {{card.skill5}}</li>
+            <li><strong>Level 10:</strong> {{card.skill10}}</li>
+        </ul>
+        <a class="btn yellow darken-2" ng-click='edit(card)'>editar</a>
+        <a class="btn red darken-4" ng-click='remove(card)'>remover</a>
+      </li>
+    </ul>
+  </section>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script>
+  angular.module('loadatabase', ["firebase"]);
+  angular.module('loadatabase').controller('cardsCtrl', cardsCtrl);
 
-				<div class="form-group">
-					<label for="cardId">Id</label>
-	 				<input 	ng-model="card.id"
-	 						type="text"
-							class="form-control"
-							id="cardId"
-							placeholder="Id">
-	 			</div>
-	 				
-				<div class="form-group">
-					<label for="cardName">Name</label>	 				
-	 				<input 	ng-model="card.name"
-	 						type="text"
-							class="form-control"
-							id="cardName"
-							placeholder="Name">
-	 			</div>
-	 				
-				<div class="form-group">
-					<label for="cardCost">Cost</label>	 				
-	 				<input 	ng-model="card.cost"
-	 						type="text"
-							class="form-control"
-							id="cardCost"
-							placeholder="Cost">
-	 			</div>
+  function cardsCtrl($scope, $firebaseArray) {
+    var ref = new Firebase("https://4theplayers.firebaseio.com/loa/cards");
+    $scope.cards = $firebaseArray(ref);
+    $scope.card = {};
 
-				<input type="button" value="save" ng-click="save()">
-				
-				<ul class="" ng-repeat="card in cards">
-					<li>
-						{{card.name}} - <span ng-click='remove(card)'>remover</span> <span ng-click='edit(card)'>editar</span>
-					</li>
-				</ul>
-			</section>
-		</div>
+    function cardDontExist() {
+      return !$scope.card.$id;
+    }
 
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-		<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
-		<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-		<script>
-			angular.module('test', ["firebase"]);
-			angular.module('test').controller('cardsCtrl', cardsCtrl);
+    $scope.save = function() {
+      if (cardDontExist())
+        $scope.cards.$add($scope.card);
+      else {
+        var cardOrigin = _.findWhere($scope.cards, {
+          $id: $scope.card.$id
+        });
+        _.extend(cardOrigin, $scope.card);
+      }
+      $scope.card = {};
+    };
 
-			function cardsCtrl ($scope, $firebaseArray) {
-				var ref = new Firebase("https://4theplayers.firebaseio.com/loa/cards");
-				$scope.cards = $firebaseArray(ref);
-				$scope.card = {};
+    $scope.remove = function(card) {
+      $scope.cards.$remove(card);
+    };
 
-				function cardDontExist() {
-					return !$scope.card.$id;
-				}
+    $scope.edit = function(card) {
+      $scope.card = angular.copy(card);
+    }
+  }
+  </script>
+</body>
 
-				$scope.save = function () {
-					if (cardDontExist())
-						$scope.cards.$add($scope.card);
-					else {
-						var cardOrigin = _.findWhere($scope.cards, { $id: $scope.card.$id });
-						_.extend(cardOrigin, $scope.card);
-					}
-					$scope.card = {};
-				};
-
-				$scope.remove = function (card) {
-					$scope.cards.$remove(card);
-				};
-
-				$scope.edit = function (card) {
-					$scope.card = angular.copy(card);
-				}
-			}
-		</script>
-	</body>
 </html>
