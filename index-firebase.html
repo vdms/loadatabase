@@ -71,7 +71,7 @@
     <input ng-model="raceFilter" type="text">
     {{filtered.length}}
     <ul class="collection">
-      <li class="collection-item avatar" ng-repeat="card in filtered = (cards | filter:{race: raceFilter}) | orderBy: 'name'">
+      <li class="collection-item avatar" ng-repeat="card in filtered = (cards | filter: {race: raceFilter}) | orderBy: 'name'">
         <img ng-src="http://mokaworld.ru/mini_new/{{card.id}}.jpg" alt="card.name" class="circle thumb-mid">
         <span class="title">{{card.name}}</span>
         <p><strong>Race:</strong> {{card.race}}</p>
